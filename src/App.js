@@ -1,8 +1,13 @@
 import { useState } from "react";
-import Form from "./components/Form";
+import Form from "./components/form/Form";
+import Resume from "./components/resume/Resume";
 
 function App() {
-  const [resumeDetails, setResumeDetails] = useState({});
+  const [resumeDetails, setResumeDetails] = useState({
+    personalInfo: "",
+    experienceInfo: "",
+    educationInfo: "",
+  });
 
   const addResumeDetailsHandler = (info) => {
     setResumeDetails((prevState) => {
@@ -14,6 +19,8 @@ function App() {
   return (
     <div>
       <Form onAddDetails={addResumeDetailsHandler} />
+      <br />
+      <Resume info={resumeDetails} />
     </div>
   );
 }

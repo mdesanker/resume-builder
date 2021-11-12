@@ -34,7 +34,7 @@ const Education = (props) => {
 
   return (
     <div>
-      <h2>Experience</h2>
+      <h2>Education</h2>
       {schoolList.map((job) => (
         <School
           id={job.id}
