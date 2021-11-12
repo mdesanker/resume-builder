@@ -3,34 +3,29 @@ import uniqid from "uniqid";
 import Job from "./Job";
 
 const Experiences = (props) => {
-  const [jobList, setJobList] = useState([
-    { job: "Job 1", id: uniqid() },
-    { job: "Job 2", id: uniqid() },
-  ]);
-
-  // TODO: Pass job data back to experience component
+  const [jobList, setJobList] = useState([{ jobDetails: "", id: uniqid() }]);
 
   const addJobClickHandler = () => {
     setJobList((prevState) => {
       return [...prevState, { job: "Job", id: uniqid() }];
     });
-    console.log(jobList);
+    props.onAddExperience(jobList);
   };
 
   const removeJobHandler = (jobId) => {
     setJobList((prevState) => {
       return prevState.filter((job) => job.id !== jobId);
     });
-    console.log(jobList);
+    props.onAddExperience(jobList);
   };
 
   const updateJobHandler = (jobData, jobId) => {
     setJobList((prevState) => {
       return prevState.map((jobItem) =>
-        jobItem.id === jobId ? { job: jobData, id: jobId } : jobItem
+        jobItem.id === jobId ? { jobDetails: jobData, id: jobId } : jobItem
       );
     });
-    console.log(jobList);
+    props.onAddExperience(jobList);
   };
 
   return (

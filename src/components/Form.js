@@ -9,7 +9,6 @@ const Form = (props) => {
     setPersonal((prevState) => {
       return { ...prevState, personalInfo };
     });
-    // console.log("FORM", personal);
     props.onAddDetails(personal);
   };
 
@@ -17,7 +16,6 @@ const Form = (props) => {
     setPersonal((prevState) => {
       return { ...prevState, experienceInfo };
     });
-    // console.log("FORM", personal);
     props.onAddDetails(personal);
   };
 

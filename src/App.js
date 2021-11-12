@@ -8,7 +8,7 @@ function App() {
     setResumeDetails((prevState) => {
       return { ...prevState, ...info };
     });
-    console.log(resumeDetails);
+    console.log("APP", resumeDetails);
   };
 
   return (
