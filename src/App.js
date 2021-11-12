@@ -2,11 +2,11 @@ import { useState } from "react";
 import Form from "./components/Form";
 
 function App() {
-  const [resumeDetails, setResumeDetails] = useState([]);
+  const [resumeDetails, setResumeDetails] = useState({});
 
   const addResumeDetailsHandler = (info) => {
     setResumeDetails((prevState) => {
-      return [...prevState, info];
+      return { ...prevState, ...info };
     });
     console.log(resumeDetails);
   };

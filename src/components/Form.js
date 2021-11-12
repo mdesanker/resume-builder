@@ -1,13 +1,15 @@
 import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 
-const Form = () => {
+const Form = (props) => {
   const [personal, setPersonal] = useState();
 
-  const addPersonalInfoHandler = (info) => {
+  const addPersonalInfoHandler = (personalInfo) => {
     setPersonal((prevState) => {
-      const savedContent = prevState.filter();
+      return { ...prevState, personalInfo };
     });
+    // console.log("FORM", personal);
+    props.onAddDetails(personal);
   };
 
   const submitHandler = (e) => {
