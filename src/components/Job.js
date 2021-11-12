@@ -21,6 +21,10 @@ const Job = (props) => {
     console.log(experienceData);
   };
 
+  const clickHandler = () => {
+    props.onRemoveJob(props.id);
+  };
+
   return (
     <div>
       <input
@@ -63,7 +67,9 @@ const Job = (props) => {
         placeholder="End Date"
         onChange={changeHandler}
       />
-      <button type="button">Remove</button>
+      <button type="button" onClick={clickHandler}>
+        Remove
+      </button>
     </div>
   );
 };
