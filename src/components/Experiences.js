@@ -10,10 +10,9 @@ const Experiences = (props) => {
 
   // TODO: Pass job data back to experience component
 
-  const clickHandler = () => {
+  const addJobClickHandler = () => {
     setJobList((prevState) => {
-      // TODO: organize job list
-      return [{ job: "Job", id: uniqid() }, ...prevState];
+      return [...prevState, { job: "Job", id: uniqid() }];
     });
     console.log(jobList);
   };
@@ -27,13 +26,9 @@ const Experiences = (props) => {
 
   const updateJobHandler = (jobData, jobId) => {
     setJobList((prevState) => {
-      return prevState.map((jobItem) => {
-        if (jobItem.id === jobId) {
-          return { job: jobData, id: jobId };
-        } else {
-          return jobItem;
-        }
-      });
+      return prevState.map((jobItem) =>
+        jobItem.id === jobId ? { job: jobData, id: jobId } : jobItem
+      );
     });
     console.log(jobList);
   };
@@ -49,7 +44,7 @@ const Experiences = (props) => {
           onRemoveJob={removeJobHandler}
         />
       ))}
-      <button type="button" onClick={clickHandler}>
+      <button type="button" onClick={addJobClickHandler}>
         Add
       </button>
     </div>

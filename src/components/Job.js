@@ -17,8 +17,6 @@ const Job = (props) => {
     setExperienceData((prevState) => {
       return { ...prevState, [name]: value };
     });
-    // props.onAddExperience(experienceData);
-    console.log(experienceData);
     props.onUpdateJob(experienceData, props.id);
   };
 
