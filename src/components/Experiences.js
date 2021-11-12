@@ -7,7 +7,7 @@ const Experiences = (props) => {
 
   const addJobClickHandler = () => {
     setJobList((prevState) => {
-      return [...prevState, { job: "Job", id: uniqid() }];
+      return [...prevState, { jobDetails: "", id: uniqid() }];
     });
     props.onAddExperience(jobList);
   };

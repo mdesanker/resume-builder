@@ -1,26 +1,24 @@
 import { useState } from "react";
-import uniqid from "uniqid";
 
 const Job = (props) => {
-  const [experienceData, setExperienceData] = useState({
+  const [jobData, setJobData] = useState({
     position: "",
     company: "",
     location: "",
     from: "",
     to: "",
-    id: uniqid(),
   });
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
-    setExperienceData((prevState) => {
+    setJobData((prevState) => {
       return { ...prevState, [name]: value };
     });
-    props.onUpdateJob(experienceData, props.id);
+    props.onUpdateJob(jobData, props.id);
   };
 
-  const clickHandler = () => {
+  const removeJobHandler = () => {
     props.onRemoveJob(props.id);
   };
 
@@ -30,7 +28,7 @@ const Job = (props) => {
         type="text"
         id="position"
         name="position"
-        value={experienceData.position}
+        value={jobData.position}
         placeholder="Position"
         onChange={changeHandler}
       />
@@ -38,7 +36,7 @@ const Job = (props) => {
         type="text"
         id="company"
         name="company"
-        value={experienceData.company}
+        value={jobData.company}
         placeholder="Company"
         onChange={changeHandler}
       />
@@ -46,7 +44,7 @@ const Job = (props) => {
         type="text"
         id="location"
         name="location"
-        value={experienceData.location}
+        value={jobData.location}
         placeholder="Location"
         onChange={changeHandler}
       />
@@ -54,7 +52,7 @@ const Job = (props) => {
         type="text"
         id="start"
         name="start"
-        value={experienceData.start}
+        value={jobData.start}
         placeholder="Start Date"
         onChange={changeHandler}
       />
@@ -62,11 +60,11 @@ const Job = (props) => {
         type="text"
         id="end"
         name="end"
-        value={experienceData.end}
+        value={jobData.end}
         placeholder="End Date"
         onChange={changeHandler}
       />
-      <button type="button" onClick={clickHandler}>
+      <button type="button" onClick={removeJobHandler}>
         Remove
       </button>
     </div>
