@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Experiences from "./Experiences";
 import PersonalInfo from "./PersonalInfo";
 
 const Form = (props) => {
@@ -12,6 +13,14 @@ const Form = (props) => {
     props.onAddDetails(personal);
   };
 
+  const addExperienceHandler = (experienceInfo) => {
+    setPersonal((prevState) => {
+      return { ...prevState, experienceInfo };
+    });
+    // console.log("FORM", personal);
+    props.onAddDetails(personal);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -19,6 +28,7 @@ const Form = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <PersonalInfo onAddPersonalInfo={addPersonalInfoHandler} />
+      <Experiences onAddExperience={addExperienceHandler} />
     </form>
   );
 };

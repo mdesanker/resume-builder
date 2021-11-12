@@ -17,7 +17,6 @@ const PersonalInfo = (props) => {
     setPersonalData((prevState) => {
       return { ...prevState, [name]: value };
     });
-    // console.log(perosnalData);
     props.onAddPersonalInfo(personalData);
   };
 
