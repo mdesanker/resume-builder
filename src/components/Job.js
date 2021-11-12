@@ -19,6 +19,7 @@ const Job = (props) => {
     });
     // props.onAddExperience(experienceData);
     console.log(experienceData);
+    props.onUpdateJob(experienceData, props.id);
   };
 
   const clickHandler = () => {
