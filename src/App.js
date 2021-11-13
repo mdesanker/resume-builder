@@ -13,27 +13,6 @@ function App() {
     github: "",
   });
 
-  const [jobData, setJobData] = useState({
-    position: "",
-    company: "",
-    location: "",
-    from: "",
-    to: "",
-  });
-
-  const [jobList, setJobList] = useState([
-    {
-      jobDetails: {},
-      id: uniqid(),
-    },
-  ]);
-
-  const addJobClickHandler = () => {
-    setJobList((prevState) => {
-      return [...prevState, { jobDetails: "", id: uniqid() }];
-    });
-  };
-
   const changePersonalHandler = (e) => {
     const { name, value } = e.target;
     setPersonalData((prevState) => {
@@ -45,20 +24,30 @@ function App() {
     console.log(personalData);
   }, [personalData]);
 
-  const changeJobHandler = (e) => {
+  const [experienceData, setExperienceData] = useState({
+    position: "",
+    company: "",
+    location: "",
+    start: "",
+    end: "",
+  });
+
+  const changeExperienceHandler = (e) => {
     const { name, value } = e.target;
-    setJobList((prevState) => {
-      console.log({ ...prevState });
+    setExperienceData((prevState) => {
+      return { ...prevState, [name]: value };
     });
   };
+
+  useEffect(() => {
+    console.log(experienceData);
+  }, [experienceData]);
 
   return (
     <div>
       <Form
         onPersonalUpdate={changePersonalHandler}
-        // onJobListUpdate={changeJobHandler}
-        onAddJob={addJobClickHandler}
-        jobs={jobList}
+        onExperienceUpdate={changeExperienceHandler}
       />
       <br />
       {/* <Resume info={resumeDetails} /> */}

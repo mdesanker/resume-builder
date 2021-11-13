@@ -1,19 +1,19 @@
-const PersonalInfo = (props) => {
+const Experience = (props) => {
   return (
     <div>
-      <h2>Personal Information</h2>
+      <h2>Experience</h2>
       <input
         type="text"
-        id="first"
-        name="first"
-        placeholder="First Name"
+        id="position"
+        name="position"
+        placeholder="Position"
         onChange={props.onUpdate}
       />
       <input
         type="text"
-        id="last"
-        name="last"
-        placeholder="Last Name"
+        id="company"
+        name="company"
+        placeholder="Company"
         onChange={props.onUpdate}
       />
       <input
@@ -24,21 +24,21 @@ const PersonalInfo = (props) => {
         onChange={props.onUpdate}
       />
       <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
+        type="text"
+        id="start"
+        name="start"
+        placeholder="Start Date"
         onChange={props.onUpdate}
       />
       <input
         type="text"
-        id="github"
-        name="github"
-        placeholder="GitHub"
+        id="end"
+        name="end"
+        placeholder="End Date"
         onChange={props.onUpdate}
       />
     </div>
   );
 };
 
-export default PersonalInfo;
+export default Experience;
