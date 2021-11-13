@@ -8,27 +8,6 @@ import uniqid from "uniqid";
 const Form = (props) => {
   const [personal, setPersonal] = useState();
 
-  // const [personalData, setPersonalData] = useState({
-  //   first: "",
-  //   last: "",
-  //   location: "",
-  //   email: "",
-  //   github: "",
-  //   id: uniqid(),
-  // });
-
-  const addPersonalInfoHandler = (personalInfo) => {
-    setPersonal((prevState) => {
-      return { ...prevState, personalInfo };
-    });
-    console.log("FORM", personal);
-    props.onAddDetails(personal);
-  };
-
-  // useEffect(() => {
-  //   console.log("Effect", personal);
-  // }, [personal]);
-
   const addExperienceHandler = (experienceInfo) => {
     setPersonal((prevState) => {
       return { ...prevState, experienceInfo };
@@ -47,24 +26,14 @@ const Form = (props) => {
     e.preventDefault();
   };
 
-  // const changeHandler = (e) => {
-  //   const { name, value } = e.target;
-
-  //   setPersonalData((prevState) => {
-  //     return { ...prevState, [name]: value };
-  //   });
-  //   console.log("Outside", personalData);
-  //   // props.onAddPersonalInfo(personalData);
-  // };
-
   return (
     <form onSubmit={submitHandler}>
-      <PersonalInfo
-        // data={personalData}
-        onUpdate={props.onPersonalUpdate}
-        onAddPersonalInfo={addPersonalInfoHandler}
+      <PersonalInfo onUpdate={props.onPersonalUpdate} />
+      <Experiences
+        onAddExperience={addExperienceHandler}
+        onAddNewJob={props.onAddJob}
+        jobList={props.jobs}
       />
-      <Experiences onAddExperience={addExperienceHandler} />
       <Education onAddEducation={addEducationHandler} />
     </form>
   );

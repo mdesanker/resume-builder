@@ -5,50 +5,63 @@ import Resume from "./components/resume/Resume";
 import uniqid from "uniqid";
 
 function App() {
-  const [resumeDetails, setResumeDetails] = useState({
-    personalInfo: "",
-    experienceInfo: "",
-    educationInfo: "",
-  });
-
   const [personalData, setPersonalData] = useState({
     first: "",
     last: "",
     location: "",
     email: "",
     github: "",
-    id: uniqid(),
   });
 
-  const addResumeDetailsHandler = (info) => {
-    setResumeDetails((prevState) => {
-      return { ...prevState, ...info };
+  const [jobData, setJobData] = useState({
+    position: "",
+    company: "",
+    location: "",
+    from: "",
+    to: "",
+  });
+
+  const [jobList, setJobList] = useState([
+    {
+      jobDetails: {},
+      id: uniqid(),
+    },
+  ]);
+
+  const addJobClickHandler = () => {
+    setJobList((prevState) => {
+      return [...prevState, { jobDetails: "", id: uniqid() }];
     });
-    // console.log("APP", resumeDetails);
   };
 
   const changePersonalHandler = (e) => {
     const { name, value } = e.target;
-
     setPersonalData((prevState) => {
       return { ...prevState, [name]: value };
     });
-    // console.log("APP", personalData);
-    // props.onAddPersonalInfo(personalData);
   };
 
   useEffect(() => {
     console.log(personalData);
   }, [personalData]);
 
+  const changeJobHandler = (e) => {
+    const { name, value } = e.target;
+    setJobList((prevState) => {
+      console.log({ ...prevState });
+    });
+  };
+
   return (
     <div>
       <Form
         onPersonalUpdate={changePersonalHandler}
-        onAddDetails={addResumeDetailsHandler}
+        // onJobListUpdate={changeJobHandler}
+        onAddJob={addJobClickHandler}
+        jobs={jobList}
       />
       <br />
-      <Resume info={resumeDetails} />
+      {/* <Resume info={resumeDetails} /> */}
     </div>
   );
 }
