@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
 import PersonalInfo from "./PersonalInfo";
-import uniqid from "uniqid";
 import Experience from "./Experience";
+import Education from "./Education";
 
 const Form = (props) => {
   const submitHandler = (e) => {
@@ -12,12 +10,17 @@ const Form = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <PersonalInfo onUpdate={props.onPersonalUpdate} />
-      {/* <Experience onUpdate={props.onExperienceUpdate} /> */}
       <Experience
         onJobInfoUpdate={props.onJobUpdate}
         onNewJob={props.onAddJob}
         onDeleteJob={props.onRemoveJob}
         jobList={props.jobs}
+      />
+      <Education
+        onSchoolInfoUpdate={props.onSchoolUpdate}
+        onNewSchool={props.onAddSchool}
+        onDeleteSchool={props.onRemoveSchool}
+        schoolList={props.schools}
       />
     </form>
   );

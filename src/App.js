@@ -5,6 +5,7 @@ import Resume from "./components/resume/Resume";
 import uniqid from "uniqid";
 
 function App() {
+  // States
   const [personalData, setPersonalData] = useState({
     first: "",
     last: "",
@@ -13,37 +14,17 @@ function App() {
     github: "",
   });
 
+  const [jobList, setJobList] = useState([{ entry: "", id: uniqid() }]);
+
+  const [schoolList, setSchoolList] = useState([{ entry: "", id: uniqid() }]);
+
+  // Handlers
   const changePersonalHandler = (e) => {
     const { name, value } = e.target;
     setPersonalData((prevState) => {
       return { ...prevState, [name]: value };
     });
   };
-
-  useEffect(() => {
-    console.log(personalData);
-  }, [personalData]);
-
-  // const [experienceData, setExperienceData] = useState({
-  //   position: "",
-  //   company: "",
-  //   location: "",
-  //   start: "",
-  //   end: "",
-  // });
-
-  // const changeExperienceHandler = (e) => {
-  //   const { name, value } = e.target;
-  //   setExperienceData((prevState) => {
-  //     return { ...prevState, [name]: value };
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   console.log(experienceData);
-  // }, [experienceData]);
-
-  const [jobList, setJobList] = useState([{ entry: "", id: uniqid() }]);
 
   const changeJobListHandler = (e) => {
     const { name, value } = e.target;
@@ -61,7 +42,7 @@ function App() {
 
   const addJobHandler = () => {
     setJobList((prevState) => {
-      return [{ entry: "", id: uniqid() }, ...prevState];
+      return [...prevState, { entry: "", id: uniqid() }];
     });
   };
 
@@ -71,9 +52,44 @@ function App() {
     });
   };
 
+  const changeSchoolListHandler = (e) => {
+    const { name, value } = e.target;
+    setSchoolList((prevState) => {
+      return prevState.map((school) => {
+        if (school.id !== e.target.dataset.id) {
+          return school;
+        } else if (school.id === e.target.dataset.id) {
+          const update = { ...school.entry, [name]: value };
+          return { entry: update, id: school.id };
+        }
+      });
+    });
+  };
+
+  const addSchoolHandler = () => {
+    setSchoolList((prevState) => {
+      return [...prevState, { entry: "", id: uniqid() }];
+    });
+  };
+
+  const removeSchoolHandler = (e) => {
+    setSchoolList((prevState) => {
+      return prevState.filter((school) => school.id !== e.target.dataset.id);
+    });
+  };
+
+  // useEffect Hooks
+  useEffect(() => {
+    console.log(personalData);
+  }, [personalData]);
+
   useEffect(() => {
     console.log(jobList);
   }, [jobList]);
+
+  useEffect(() => {
+    console.log(schoolList);
+  }, [schoolList]);
 
   return (
     <div>
@@ -83,10 +99,12 @@ function App() {
         onAddJob={addJobHandler}
         onRemoveJob={removeJobHandler}
         jobs={jobList}
-        // onExperienceUpdate={changeExperienceHandler}
+        onSchoolUpdate={changeSchoolListHandler}
+        onAddSchool={addSchoolHandler}
+        onRemoveSchool={removeSchoolHandler}
+        schools={schoolList}
       />
       <br />
-      {/* <Resume info={resumeDetails} /> */}
     </div>
   );
 }
