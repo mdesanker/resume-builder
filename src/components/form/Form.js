@@ -12,7 +12,8 @@ const Form = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <PersonalInfo onUpdate={props.onPersonalUpdate} />
-      <Experience onUpdate={props.onExperienceUpdate} />
+      {/* <Experience onUpdate={props.onExperienceUpdate} /> */}
+      <Experience onJobInfoUpdate={props.onJobUpdate} jobList={props.jobs} />
     </form>
   );
 };

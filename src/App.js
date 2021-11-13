@@ -24,30 +24,52 @@ function App() {
     console.log(personalData);
   }, [personalData]);
 
-  const [experienceData, setExperienceData] = useState({
-    position: "",
-    company: "",
-    location: "",
-    start: "",
-    end: "",
-  });
+  // const [experienceData, setExperienceData] = useState({
+  //   position: "",
+  //   company: "",
+  //   location: "",
+  //   start: "",
+  //   end: "",
+  // });
 
-  const changeExperienceHandler = (e) => {
+  // const changeExperienceHandler = (e) => {
+  //   const { name, value } = e.target;
+  //   setExperienceData((prevState) => {
+  //     return { ...prevState, [name]: value };
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   console.log(experienceData);
+  // }, [experienceData]);
+
+  const [jobList, setJobList] = useState([{ entry: "", id: uniqid() }]);
+
+  const changeJobListHandler = (e) => {
     const { name, value } = e.target;
-    setExperienceData((prevState) => {
-      return { ...prevState, [name]: value };
+    setJobList((prevState) => {
+      return prevState.map((job) => {
+        if (job.id !== e.target.dataset.id) {
+          return job;
+        } else if (job.id === e.target.dataset.id) {
+          const update = { ...job.entry, [name]: value };
+          return { entry: update, id: job.id };
+        }
+      });
     });
   };
 
   useEffect(() => {
-    console.log(experienceData);
-  }, [experienceData]);
+    console.log(jobList);
+  }, [jobList]);
 
   return (
     <div>
       <Form
         onPersonalUpdate={changePersonalHandler}
-        onExperienceUpdate={changeExperienceHandler}
+        onJobUpdate={changeJobListHandler}
+        jobs={jobList}
+        // onExperienceUpdate={changeExperienceHandler}
       />
       <br />
       {/* <Resume info={resumeDetails} /> */}
