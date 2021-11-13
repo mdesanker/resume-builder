@@ -13,7 +13,12 @@ const Form = (props) => {
     <form onSubmit={submitHandler}>
       <PersonalInfo onUpdate={props.onPersonalUpdate} />
       {/* <Experience onUpdate={props.onExperienceUpdate} /> */}
-      <Experience onJobInfoUpdate={props.onJobUpdate} jobList={props.jobs} />
+      <Experience
+        onJobInfoUpdate={props.onJobUpdate}
+        onNewJob={props.onAddJob}
+        onDeleteJob={props.onRemoveJob}
+        jobList={props.jobs}
+      />
     </form>
   );
 };

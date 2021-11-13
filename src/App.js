@@ -59,6 +59,18 @@ function App() {
     });
   };
 
+  const addJobHandler = () => {
+    setJobList((prevState) => {
+      return [{ entry: "", id: uniqid() }, ...prevState];
+    });
+  };
+
+  const removeJobHandler = (e) => {
+    setJobList((prevState) => {
+      return prevState.filter((job) => job.id !== e.target.dataset.id);
+    });
+  };
+
   useEffect(() => {
     console.log(jobList);
   }, [jobList]);
@@ -68,6 +80,8 @@ function App() {
       <Form
         onPersonalUpdate={changePersonalHandler}
         onJobUpdate={changeJobListHandler}
+        onAddJob={addJobHandler}
+        onRemoveJob={removeJobHandler}
         jobs={jobList}
         // onExperienceUpdate={changeExperienceHandler}
       />
