@@ -2,9 +2,9 @@ const ResumeHeader = (props) => {
   const { first, last, location, email, github } = props.personal;
 
   return (
-    <div>
-      <h1>{`${first} ${last}`}</h1>
-      <p>{`${location} | ${email} | ${github}`}</p>
+    <div className="resume-header">
+      <h1 className="resume-name">{`${first} ${last}`}</h1>
+      <p className="personal-details">{`${location} | ${email} | ${github}`}</p>
     </div>
   );
 };

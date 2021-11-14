@@ -1,8 +1,18 @@
 .resume-container {
   width: 216mm;
   height: 279mm;
-  padding: 10mm;
+  /* padding: 20mm; */
   margin: 2rem;
   border: 1px solid gray;
   box-shadow: 0 0 5px 5px lightgray;
+}
+.resume-header {
+  padding: 20mm 20mm 10mm 20mm;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.resume-name {
+  font-weight: 400;
 }
