@@ -105,7 +105,6 @@ function App() {
           onRemoveSchool={removeSchoolHandler}
           schools={schoolList}
         />
-        <br />
         <Resume
           personalInfo={personalData}
           jobInfo={jobList}

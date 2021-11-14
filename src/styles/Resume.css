@@ -1,0 +1,8 @@
+.resume-container {
+  width: 216mm;
+  height: 279mm;
+  padding: 10mm;
+  margin: 2rem;
+  border: 1px solid gray;
+  box-shadow: 0 0 5px 5px lightgray;
+}
