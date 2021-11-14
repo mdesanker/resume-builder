@@ -1,3 +1,5 @@
+import "../../styles/ResumeHeader.css";
+
 const ResumeHeader = (props) => {
   const { first, last, location, email, github } = props.personal;
 

@@ -79,15 +79,15 @@ function App() {
 
   // useEffect Hooks
   useEffect(() => {
-    console.log(personalData);
+    // console.log(personalData);
   }, [personalData]);
 
   useEffect(() => {
-    console.log(jobList);
+    // console.log(jobList);
   }, [jobList]);
 
   useEffect(() => {
-    console.log(schoolList);
+    // console.log(schoolList);
   }, [schoolList]);
 
   return (

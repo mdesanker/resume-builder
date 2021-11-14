@@ -1,0 +1,23 @@
+.resume-body {
+  padding: 0 20mm;
+  display: flex;
+  flex-direction: column;
+}
+.resume-section {
+  margin-bottom: 1rem;
+}
+.section-header {
+  font-weight: 700;
+  font-size: 1.5rem;
+  border-bottom: 1px solid black;
+}
+.section-entry {
+  list-style: none;
+  padding: 1rem 0;
+}
+.entry-top,
+.entry-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

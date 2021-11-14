@@ -1,0 +1,10 @@
+.resume-header {
+  padding: 20mm 20mm 10mm 20mm;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.resume-name {
+  font-weight: 400;
+}
