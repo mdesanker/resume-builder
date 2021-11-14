@@ -1,4 +1,4 @@
-const Header = (props) => {
+const ResumeHeader = (props) => {
   const { first, last, location, email, github } = props.personal;
 
   return (
@@ -9,4 +9,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default ResumeHeader;

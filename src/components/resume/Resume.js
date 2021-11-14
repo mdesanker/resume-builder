@@ -1,10 +1,10 @@
 import Body from "./Body";
-import Header from "./Header";
+import ResumeHeader from "./ResumeHeader";
 
 const Resume = (props) => {
   return (
     <div>
-      <Header personal={props.personalInfo} />
+      <ResumeHeader personal={props.personalInfo} />
       <Body experience={props.jobInfo} education={props.schoolInfo} />
     </div>
   );

@@ -1,8 +1,10 @@
+import uniqid from "uniqid";
+
 const Body = (props) => {
   const experience = props.experience.map((job) => {
     const { position, company, location, start, end } = job.entry;
     return (
-      <li>
+      <li key={uniqid()}>
         <div>
           <h3>{position}</h3>
           <p>
@@ -20,7 +22,7 @@ const Body = (props) => {
   const education = props.education.map((job) => {
     const { university, location, degree, subject, date } = job.entry;
     return (
-      <li>
+      <li key={uniqid()}>
         <div>
           <h3>{university}</h3>
           <p>{date}</p>

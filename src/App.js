@@ -3,6 +3,9 @@ import { useEffect } from "react/cjs/react.development";
 import Form from "./components/form/Form";
 import Resume from "./components/resume/Resume";
 import uniqid from "uniqid";
+import "./styles/App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   // States
@@ -30,12 +33,10 @@ function App() {
     const { name, value } = e.target;
     setJobList((prevState) => {
       return prevState.map((job) => {
-        if (job.id !== e.target.dataset.id) {
-          return job;
-        } else if (job.id === e.target.dataset.id) {
+        if (job.id === e.target.dataset.id) {
           const update = { ...job.entry, [name]: value };
           return { entry: update, id: job.id };
-        }
+        } else return job;
       });
     });
   };
@@ -56,12 +57,10 @@ function App() {
     const { name, value } = e.target;
     setSchoolList((prevState) => {
       return prevState.map((school) => {
-        if (school.id !== e.target.dataset.id) {
-          return school;
-        } else if (school.id === e.target.dataset.id) {
+        if (school.id === e.target.dataset.id) {
           const update = { ...school.entry, [name]: value };
           return { entry: update, id: school.id };
-        }
+        } else return school;
       });
     });
   };
@@ -92,24 +91,28 @@ function App() {
   }, [schoolList]);
 
   return (
-    <div>
-      <Form
-        onPersonalUpdate={changePersonalHandler}
-        onJobUpdate={changeJobListHandler}
-        onAddJob={addJobHandler}
-        onRemoveJob={removeJobHandler}
-        jobs={jobList}
-        onSchoolUpdate={changeSchoolListHandler}
-        onAddSchool={addSchoolHandler}
-        onRemoveSchool={removeSchoolHandler}
-        schools={schoolList}
-      />
-      <br />
-      <Resume
-        personalInfo={personalData}
-        jobInfo={jobList}
-        schoolInfo={schoolList}
-      />
+    <div className="app-container">
+      <Header />
+      <main>
+        <Form
+          onPersonalUpdate={changePersonalHandler}
+          onJobUpdate={changeJobListHandler}
+          onAddJob={addJobHandler}
+          onRemoveJob={removeJobHandler}
+          jobs={jobList}
+          onSchoolUpdate={changeSchoolListHandler}
+          onAddSchool={addSchoolHandler}
+          onRemoveSchool={removeSchoolHandler}
+          schools={schoolList}
+        />
+        <br />
+        <Resume
+          personalInfo={personalData}
+          jobInfo={jobList}
+          schoolInfo={schoolList}
+        />
+      </main>
+      <Footer />
     </div>
   );
 }
