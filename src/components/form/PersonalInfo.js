@@ -1,6 +1,6 @@
 const PersonalInfo = (props) => {
   return (
-    <div>
+    <div className="section category">
       <h2>Personal Information</h2>
       <input
         type="text"

@@ -5,3 +5,31 @@
   border: 1px solid rgb(52, 52, 52);
   /* box-shadow: 0 0 5px 5px lightgray; */
 }
+.section {
+  display: flex;
+  flex-direction: column;
+}
+.category input {
+  font-size: 1rem;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.category input:focus {
+  outline: none;
+  border-bottom: 2px solid black;
+}
+.category h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin: 1rem 0;
+}
+.btn {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  padding: 0.3rem;
+  margin: 0.2rem;
+}

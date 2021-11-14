@@ -1,6 +1,6 @@
 const School = (props) => {
   return (
-    <div>
+    <div className="section">
       <input
         type="text"
         id="university"
@@ -41,7 +41,12 @@ const School = (props) => {
         placeholder="Date Received"
         onChange={props.onUpdate}
       />
-      <button type="button" data-id={props.id} onClick={props.onRemove}>
+      <button
+        type="button"
+        className="btn remove-btn"
+        data-id={props.id}
+        onClick={props.onRemove}
+      >
         Remove
       </button>
     </div>

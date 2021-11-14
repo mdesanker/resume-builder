@@ -1,6 +1,6 @@
 const Job = (props) => {
   return (
-    <div>
+    <div className="section">
       <input
         type="text"
         id="position"
@@ -41,7 +41,12 @@ const Job = (props) => {
         placeholder="End Date"
         onChange={props.onUpdate}
       />
-      <button type="button" data-id={props.id} onClick={props.onRemove}>
+      <button
+        type="button"
+        className="btn remove-btn"
+        data-id={props.id}
+        onClick={props.onRemove}
+      >
         Remove
       </button>
     </div>

@@ -13,10 +13,10 @@ const Experience = (props) => {
   });
 
   return (
-    <div>
+    <div className="section category">
       <h2>Experience</h2>
       {content}
-      <button type="button" onClick={props.onNewJob}>
+      <button type="button" className="btn add-btn" onClick={props.onNewJob}>
         Add
       </button>
     </div>

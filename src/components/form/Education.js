@@ -13,10 +13,10 @@ const Education = (props) => {
   });
 
   return (
-    <div>
+    <div className="section category">
       <h2>Education</h2>
       {content}
-      <button type="button" onClick={props.onNewSchool}>
+      <button type="button" className="btn add-btn" onClick={props.onNewSchool}>
         Add
       </button>
     </div>
