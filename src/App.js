@@ -105,6 +105,11 @@ function App() {
         schools={schoolList}
       />
       <br />
+      <Resume
+        personalInfo={personalData}
+        jobInfo={jobList}
+        schoolInfo={schoolList}
+      />
     </div>
   );
 }

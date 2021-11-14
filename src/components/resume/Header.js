@@ -1,23 +1,10 @@
-import { useState, useEffect } from "react/cjs/react.development";
-
 const Header = (props) => {
-  const [personalInfo, setPersonalInfo] = useState({
-    first: "",
-    last: "",
-    location: "",
-    email: "",
-    github: "",
-  });
-
-  useEffect(() => {
-    setPersonalInfo(props.personalInfo);
-  }, [props.personalInfo]);
+  const { first, last, location, email, github } = props.personal;
 
   return (
     <div>
-      <p>First Name: {personalInfo.first}</p>
-      <p>Last Name: {personalInfo.last}</p>
-      <p>Location: {personalInfo.location}</p>
+      <h1>{`${first} ${last}`}</h1>
+      <p>{`${location} | ${email} | ${github}`}</p>
     </div>
   );
 };
